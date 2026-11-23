@@ -32,8 +32,28 @@ class MinHeap:
         # TODO: swap the root with the last item and pop the last item (that is the minimum)
         # TODO: heapify down from the root: swap with the smaller child while that child is smaller
         # TODO: return the minimum
-        raise NotImplementedError()
-        #test
+        if len(self.Q) == 0:
+            raise IndexError("Heap is empty")
+
+        self.Q[0], self.Q[-1] = self.Q[-1], self.Q[0]
+        minimum = self.Q.pop()
+
+        i = 0
+        n = len(self.Q)
+
+        while 2 * i + 1 < n:
+            left = 2 * i + 1
+            right = 2 * i + 2
+            smallest = left
+
+            if right < n and self.Q[right] < self.Q[left]:
+                smallest = right
+            if self.Q[smallest] < self.Q[i]:
+                self.Q[i], self.Q[smallest] = self.Q[smallest], self.Q[i]
+                i = smallest
+            else:
+                break
+        return minimum
 
 
 class UnsortedListPQ:
@@ -52,7 +72,7 @@ class UnsortedListPQ:
     def delete_min(self):
         # TODO: find the index of the smallest item with one scan
         # TODO: swap it with the last item, then pop and return it
-        raise NotImplementedError()
+        
 
 
 # ============================================================================
