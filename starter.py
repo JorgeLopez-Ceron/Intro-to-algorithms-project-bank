@@ -25,8 +25,18 @@ class MinHeap:
 
     def insert(self, item):
         # TODO: append the item
+
+        append_item = self.Q.append(item)
+        i = len(self.Q) - 1
+        parent = (i - 1) // 2
+        
         # TODO: heapify up: swap it with its parent (i - 1) // 2 while it is smaller
-        raise NotImplementedError()
+        
+        while i > 0 and self.Q[i] < self.Q[parent]:
+            self.Q[i], self.Q[parent] = self.Q[parent], self.Q[i]
+            i = parent
+            parent = (i - 1) // 2        
+
 
     def delete_min(self):
         # TODO: swap the root with the last item and pop the last item (that is the minimum)
