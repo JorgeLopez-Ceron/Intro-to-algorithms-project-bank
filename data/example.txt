@@ -1,0 +1,12 @@
+# teller, name, service time in minutes (fastest first)
+teller, T1, 3
+teller, T2, 5
+patience, 4
+# customer id, arrival minute, class
+C1, 0, Regular
+C2, 1, Regular
+C3, 2, Elderly
+C4, 3, VIP
+C5, 4, Regular
+C6, 5, VIP
+C7, 6, Regular
